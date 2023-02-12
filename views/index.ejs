@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+  <title>Movie List</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .movie-list {
+      width: 80%;
+      margin: 0 auto;
+    }
+    .movie-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 2px 2px 8px #ccc;
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .movie-poster {
+      width: 30%;
+      /* height: 100%; */
+      background-size: cover;
+      background-position: center;
+    }
+    .movie-details {
+      width: 70%;
+      padding: 20px;
+    }
+    .movie-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .movie-description {
+      font-size: 18px;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .movie-year {
+      font-size: 16px;
+      color: #999;
+    }
+    .movie-rating {
+      margin-top: 2rem;
+      font-size: 12px;
+      color: rgb(241, 206, 27);
+    }
+
+    .movie-rating p{
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Movie List</h1>
+  <div class="movie-list">
+    <% movies.forEach(function(movie) { %>
+      <div class="movie-card">
+        <div class="movie-poster" style="background-image:url(<%= movie.Images[0] %>)"></div>
+        <div class="movie-details">
+          <div class="movie-title"><%= movie.Title %></div>
+          <div class="movie-description"><%= movie.Plot %></div>
+          <div class="movie-year">Year: <%= movie.Year %></div>
+          <div class="movie-rating">
+  <p>Rating: </p>
+  <% for (let i = 0; i < movie.imdbRating; i++) { %>
+    <span class="fa fa-star"></span>
+  <% } %>
+  <% for (let i = movie.imdbRating; i < 5; i++) { %>
+    <span class="fa fa-star-o"></span>
+  <% } %>
+</div>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</body>
+</html>

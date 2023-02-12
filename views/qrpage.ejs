@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #f7f7f7;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+      }
+      .header {
+        margin-top: 50px;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+      }
+      .qr-code {
+        margin-top: 50px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #ddd;
+        padding: 30px;
+        text-align: center;
+      }
+      .qr-code img {
+        width: 200px;
+        height: 200px;
+      }
+      .subtitle {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+      }
+      .primary{
+          margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        MOVIE LIST
+      </div>
+      <div class="primary">
+        QR Code
+      </div>
+      <div class="qr-code">
+        <img src="<%= qrCode %>" alt="QR code">
+        <div class="subtitle">
+          Scan this QR code to access the movie list website.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
